@@ -1,11 +1,11 @@
-function spin()
-    a = 0
-    b = 0
-    c = 0
-    win = 0
-    lose = 0
+local function spin()
+    local a = 0
+    local b = 0
+    local c = 0
+    local win = 0
+    local lose = 0
     print("input a numbber of spin or q to quit: ")
-    ingresso = io.read()
+    local ingresso = io.read()
     if ingresso == "q" then
         os.exit()
     else
@@ -29,7 +29,7 @@ function spin()
     end
 end
 
-function main()
+local function main()
     while true do
         spin()
     end
