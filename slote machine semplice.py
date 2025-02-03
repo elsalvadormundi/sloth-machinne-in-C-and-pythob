@@ -1,35 +1,32 @@
 import random
-import numpy as np
+import sys
 def spin():
-    a = np.array(["0","0","0","0","0"])
-    b = np.array(["0","0","0","0","0"])
-    c = np.array(["0","0","0","0","0"])
-    win=0
-    lose=0
-    ingresso = int(input())
-    for d in range(ingresso):
-        print(f"\n----{d+1}----")
-        for e in range(5):
-            a[e] = random.randint(1,3)
-            b[e] = random.randint(1,3)
-            c[e] = random.randint(1,3)
-            print(f"  {a[e]},{b[e]},{c[e]}")
-            
-        if a[4]==b[4]:
-            if b[4]==c[4]:
-                print("you win");
+    a = 0
+    b = 0
+    c = 0
+    win = 0 
+    lose = 0
+    ingresso = input("int the number of spin or press q to quit:")
+    if ingresso == "q":
+        sys.exit()
+    else:
+        for d in range(int(ingresso)):
+            print(f"\n--{d+1}--")
+            for e in range(5):
+                a = random.randint(1,3)
+                b = random.randint(1,3)
+                c = random.randint(1,3)
+                print(f"  {a},{b},{c}")
+            if a==b and b==c and c==a:
+                print("\033[32myou win\033[37m");
                 win=win+1
             else:
-                print("you lose")
+                print("\033[31myou lose\033[37m")
                 lose=lose+1
-        else:
-                print("you lose")
-                lose=lose+1
-    print(f"you won for :{win}, you lose for :{lose}")
+        print(f"\033[32myou won for :{win}, \033[31myou lose for :{lose}\033[37m")
 def main():
     while True:
         print("\n int the number of spin \n")
         spin()
- 
 if __name__=="__main__":
     main()
