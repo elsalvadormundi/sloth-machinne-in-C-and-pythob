@@ -4,7 +4,6 @@ local function spin()
     local c = 0
     local win = 0
     local lose = 0
-    local bob = 0
     print("input a numbber of spin or q to quit: ")
     local ingresso = io.read()
     if ingresso == "q" then
