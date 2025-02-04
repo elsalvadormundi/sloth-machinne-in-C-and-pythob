@@ -3,36 +3,30 @@ import java.util.Scanner;
 public class sloth_machie {
     public static void main(String[] args){
          while(true){
-            System.out.println("int the number of spin : ");
             sloth();
          }
     }
     public static void sloth(){
-        int a,b,c = 0;
-        int win=0;
-	int lose=0;
+        int var_1 = 0;
+        int var_2 = 0;
+        int var_3 = 0;
+        int win = 0;
+        int lose = 0;
         Random rand = new Random();
-        Scanner ingresso = new Scanner(System.in);
-	int limite = ingresso.nextInt();
-        for(int d=0;d<limite;++d){
-		System.out.println("----"+(d+1)+"----");
-            for(int e=0;e<=5;++e){
-                a=rand.nextInt(4);
-                b=rand.nextInt(4);
-                c=rand.nextInt(4);
-                System.out.println("  "+a+","+b+","+c);
-		if(e>=5){
-	 		if(a==b && b==c){
-				System.out.println("you won");
-				win += 1; 
-				}
-			else{
-				System.out.println("you lose");
-				lose += 1;
-				}
-        		}
-    		}
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Input the number of spin:");
+        int user_input = scan.nextInt();
+        for(int d=1; d<=user_input; ++d){
+            System.out.println("---"+d+"---");
+            for(int e=0; e<5; ++e){
+                var_1 = rand.nextInt(4);
+                var_2 = rand.nextInt(4);
+                var_3 = rand.nextInt(4);
+                System.out.println(var_1+"-"+var_2+"-"+var_3);
+            }
+            if (var_1==var_2 && var_2==var_3 && var_3==var_1){++win;}
+            else{++lose;}
+        }
+        System.out.println("you won for : "+win+" you lose for : "+lose);
 	}
-	System.out.println("you won for : "+win+" you lose for : "+lose);
-    }
 }
